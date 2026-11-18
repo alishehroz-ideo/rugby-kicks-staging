@@ -1,0 +1,112 @@
+<!doctype html>
+<!-- The game itself: the client's own page (game/index.html: their markup, stylesheets and classic scripts, copied
+     in at build time by vite.gamebull.config.ts, unchanged, plus gb/client-hooks.js after their match-hud.js), then the
+     GameBull shell. Loaded by index.html in a frame filling the page (their sizeHandler fits their canvas to it). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Rugby Kicks | 120 Second Score Challenge</title>
+<link rel="stylesheet" href="css/tournament.css?v=1">
+        <link rel="stylesheet" href="css/reset.css?v=1" type="text/css">
+        <link rel="stylesheet" href="css/main.css?v=1" type="text/css">
+        <link rel="stylesheet" href="css/orientation_utils.css?v=1" type="text/css">
+        <link rel="stylesheet" href="css/ios_fullscreen.css?v=1" type="text/css">
+        <link rel="icon" type="image/png" sizes="32x32" href="branding/icon-32.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="branding/icon-192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="branding/icon-180.png">
+        <meta name="theme-color" content="#bd0a26">
+        <meta name="description" content="Aim. Kick. Top the scoreboard. Take on a 120-second rugby score challenge with shifting winds and increasing difficulty.">
+        <meta property="og:title" content="Rugby Kicks | 120 Second Score Challenge">
+        <meta property="og:description" content="Aim. Kick. Top the scoreboard. A 120-second rugby score challenge.">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="branding/thumbnail-1280x720.png">
+        <meta property="og:image:width" content="1280">
+        <meta property="og:image:height" content="720">
+        <meta property="og:image:alt" content="Rugby Kicks - 120 Second Score Challenge">
+        <meta name="twitter:card" content="summary_large_image">
+        
+
+        
+	<meta name="msapplication-tap-highlight" content="no"/>
+
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js?v=1"></script>
+        <script type="text/javascript" src="js/createjs.min.js?v=1"></script>
+        <script type="text/javascript" src="js/howler.min.js?v=1"></script>
+        <script type="text/javascript" src="js/screenfull.js?v=1"></script>
+        <script type="text/javascript" src="js/platform.js?v=1"></script>
+        <script type="text/javascript" src="js/ios_fullscreen.js?v=1"></script>
+        <script type="text/javascript" src="js/ctl_utils.js?v=1"></script>
+        <script type="text/javascript" src="js/sprite_lib.js?v=1"></script>
+        <script type="text/javascript" src="js/settings.js?v=1"></script>
+        <script type="text/javascript" src="js/levelSettings.js?v=1"></script>
+        <script type="text/javascript" src="js/CLang.js?v=1"></script>
+        <script type="text/javascript" src="js/CPreloader.js?v=1"></script>
+        <script type="text/javascript" src="js/CMain.js?v=1"></script>
+        <script type="text/javascript" src="js/CTextButton.js?v=1"></script>
+        <script type="text/javascript" src="js/CToggle.js?v=1"></script>
+        <script type="text/javascript" src="js/CGfxButton.js?v=1"></script>
+        <script type="text/javascript" src="js/CRollingTextController.js?v=1"></script>
+        <script type="text/javascript" src="js/CTweenController.js?v=1"></script>
+        <script type="text/javascript" src="js/CMenu.js?v=1"></script>
+        <script type="text/javascript" src="js/CGame.js?v=1"></script>
+        <script type="text/javascript" src="js/CInterface.js?v=1"></script>
+        <script type="text/javascript" src="js/CCreditsPanel.js?v=1"></script>
+        <script type="text/javascript" src="js/CAreYouSurePanel.js?v=1"></script>
+        <script type="text/javascript" src="js/CShotIndicatorController.js?v=1"></script>
+        <script type="text/javascript" src="js/CVector2.js?v=1"></script>
+        <script type="text/javascript" src="js/CGoalArea.js?v=1"></script>
+        <script type="text/javascript" src="js/CBall.js?v=1"></script>
+        <script type="text/javascript" src="js/CPlayer.js?v=1"></script>
+        <script type="text/javascript" src="js/CScoreText.js?v=1"></script>
+        <script type="text/javascript" src="js/CMsgBox.js?v=1"></script>
+        <script type="text/javascript" src="js/CCTLText.js?v=1"></script>
+  <script type="module" crossorigin src="./gb/app-QupeC12w.js"></script>
+  <link rel="modulepreload" crossorigin href="./gb/nozoom-U3Ax40Dt.js">
+  <link rel="stylesheet" crossorigin href="./gb/app-BMtWuoPU.css">
+</head>
+<body>
+<script>
+            if (location.protocol === 'file:') {
+                document.write('<script src="js/local-assets.js?v=1"><\/script>');
+                document.write('<script src="js/voice-assets.js?v=1"><\/script>');
+                document.write('<script src="js/player-assets.js?v=1"><\/script>');
+            }
+            function rugbyAsset(path) {
+                return window.RugbyLocalAssets?.[path.replace(/^\.\//, '')] || path;
+            }
+        </script>
+        <script src="js/red-dolphins.js?v=1"></script>
+        <script src="js/tournament.js?v=1"></script>
+        <script src="js/announcer.js?v=1"></script>
+        <script src="js/match-hud.js?v=1"></script>
+        <script src="gb/client-hooks.js?v=1"></script>
+        <script>
+            $(function () {
+                new CMain({
+                    shot_indicator_spd: 1950,
+                    decrease_shot_indicator_spd: 0,
+                    shots_per_stage: 5,
+                    red_area_points: 100,
+                    yellow_area_points: 200,
+                    green_area_points: 500,
+                    audio_enable_on_startup: false,
+                    fullscreen: false,
+                    check_orientation: false
+                });
+                sizeHandler();
+                window.visualViewport?.addEventListener("resize", sizeHandler);
+            });
+        </script>
+
+        <div class="check-fonts">
+            <p class="check-font-1">test 1</p>
+        </div> 
+        
+        
+        <canvas id="canvas" class='ani_hack' width="640" height="1024"> </canvas>
+        <div data-orientation="portrait" class="orientation-msg-container"><p class="orientation-msg-text">Please rotate your device to portrait.</p></div>
+        <div id="block_game" style="position: fixed; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%; display:none"></div>
+<div id="gb-root"></div>
+</body>
+</html>

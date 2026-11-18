@@ -1,0 +1,48 @@
+.tournament {
+    box-sizing: border-box;
+    width: min(440px, calc(100vw - 32px));
+    max-height: min(90vh, 720px);
+    max-height: min(90dvh, 720px);
+    margin: auto;
+    padding: clamp(18px, 5vw, 30px);
+    overflow: auto;
+    border: 1px solid #52728c;
+    border-radius: 20px;
+    background: #102339;
+    color: #f4f8ff;
+    font: 16px/1.6 system-ui, sans-serif;
+    box-shadow: 0 18px 64px #0009;
+}
+.tournament::backdrop { background: #07121abb; }
+.tournament h1 { font-size: clamp(23px, 6vw, 32px); font-weight: 800; line-height: 1.2; margin-bottom: 12px; }
+.tournament h2 { font-size: 17px; font-weight: 750; margin-top: 14px; }
+.tournament p { margin-bottom: 12px; }
+.tournament .eyebrow { color: #8df0c3; font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+.tournament .small { color: #c5d5e4; font-size: 13px; }
+.tournament .points { display: flex; flex-wrap: wrap; gap: 8px; }
+.tournament .points span { padding: 4px 8px; border-radius: 7px; background: #203a51; }
+.tournament .points span:nth-child(1) { color: #8df0c3; }
+.tournament .points span:nth-child(2) { color: #ffe17a; }
+.tournament .points span:nth-child(3) { color: #ffaaa0; }
+.tournament button, .tournament input { box-sizing: border-box; font: inherit; min-height: 44px; border-radius: 8px; }
+.tournament button { padding: 6px 12px; border: 1px solid #52728c; background: #1e3a53; color: inherit; cursor: pointer; }
+.tournament button.primary { background: #8df0c3; border-color: #8df0c3; color: #102339; font-weight: 750; }
+.tournament button:disabled { opacity: .55; cursor: default; }
+.tournament :focus-visible { outline: 2px solid #ffe17a; outline-offset: 2px; }
+.tournament input { flex: 1; width: 0; min-width: 0; background: #081a2b; color: inherit; border: 1px solid #52728c; padding: 6px 10px; }
+.tournament label { display: block; margin-bottom: 4px; }
+.tournament .row { display: flex; gap: 8px; }
+.tournament .actions { margin-top: 16px; }
+.tournament .total { font-size: 19px; line-height: 1; }
+.tournament .total strong { font-size: 45px; font-weight: 850; color: #8df0c3; }
+.tournament .ranking { max-height: 138px; overflow: auto; }
+.tournament ol { list-style: decimal; padding-inline-start: 26px; overflow-wrap: anywhere; }
+.tournament li.empty { list-style: none; }
+/* Red Dolphins match panels */
+.tournament {background:#151720;border-color:#a8223c;color:#fff;}
+.tournament::backdrop {background:#0b0c13af;}
+.tournament .eyebrow {color:#ff8d9f;}
+.tournament button {background:#292d36;border-color:#555d69;}
+.tournament button.primary {background:#c5042e;border-color:#ff4c68;color:#fff;}
+.tournament .total strong {color:#ff637f;}
+.tournament input {background:#0d0f16;border-color:#555d69;}
